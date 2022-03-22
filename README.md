@@ -29,7 +29,7 @@ botelo is very quick in exporting as it uses parallel processes to create export
 #### Converting a large CSV file to several smaller Excel files
 In its most simple form a botelo job just collects data and exports it into a different format. Here is an example script that converts a large CSV file into smaller Excel files with a row limit of 250000 rows:
 
-```
+```python
 from botelo.collectors import CSVFileDataCollector
 from botelo.processors import Botelo
 from botelo.exporters import ExcelDataExporter
@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
 ```
 #### Retrieving data from a PostgreSQL database, exporting it to Excel and uploading the Excel files to Jira
-```
+```python
 from botelo import config
 from botelo import secrets
 from botelo.processors import Botelo
@@ -198,7 +198,7 @@ In order to reduce the amount of boilerplate code to just create the export job 
 
 Python script named factory.py containing methods returning different export jobs:
 
-```
+```python
 from botelo.jobs import ExportJob
 from botelo.gatherers import JiraIssueTitleGatherer
 from botelo.gatherers import FormattedDatetimeGatherer
@@ -319,7 +319,7 @@ def create_pgsql_csv_export_job(job_name,
 
 Python script with a command line interface (CLI) to run jobs directly from the Terminal:
 
-```
+```python
 from argparse import ArgumentParser
 from pathlib import Path
 import sys
@@ -529,7 +529,7 @@ Example:
 
 (In this example we use a FormattedDatetimeGatherer to get a formatted date string which we then use in the BaseFilenameGatherer. This way of chaining info gatherers can be very useful.)
 
-```
+```python
 formatted_date_gatherer = FormattedDatetimeGatherer('formatted_datetime', '%Y%m%d_%H%M%S')
 export_job.add_info_gatherer(formatted_date_gatherer)
 formatstr = 'Data_export_{formatted_datetime}_{connection_name}_{jira_issue}_V01'

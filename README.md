@@ -414,7 +414,7 @@ To customize botelo to your own needs you can tweak the options in the config.py
 
 * NAMED_CONNECTIONS: A dictionary to hold different connection settings for PostgreSQL, Apache Drill etc.
 * EXPORT_FOLDERPATH: The directory where botelo will save exported data files
-* JIRA\_BASE_\URL: The URL of Jira (when you want to upload files automatically)
+* JIRA\_BASE\_URL: The URL of Jira (when you want to upload files automatically)
 * JIRA_USER: The name of the Jira user
 * JIRA_PASSWORD: The password of the Jira user
 

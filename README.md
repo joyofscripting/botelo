@@ -350,7 +350,7 @@ def export_data(jira_issue, connection_name, chunk_size, query, creator_name, fi
                               'creator': creator_name,
                               'BT_QUERY': sql_statement}
 
-    export_job = factory.create_gvl_xlsx_export_job(jira_issue,
+    export_job = factory.create_pgsql_xlsx_export_job(jira_issue,
                                                     chunk_size,
                                                     shared_info_collection,
                                                     connection_settings,

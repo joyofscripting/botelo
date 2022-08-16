@@ -61,7 +61,7 @@ class BoteloFilesBucket(object):
         self._package_files.append(filepath)
 
     def get_relevant_files(self) -> List[Path]:
-        """Returns the current list of relevant filepaths."""
+        """Returns the current unique list of relevant filepaths."""
         relevant_filepaths = []
         if self.package_files:
             relevant_filepaths.extend(self.package_files)
@@ -73,10 +73,10 @@ class BoteloFilesBucket(object):
         if self.query_file:
             relevant_filepaths.append(self.query_file)
 
-        return relevant_filepaths
+        return list(set(relevant_filepaths))
 
     def get_all_filepaths(self) -> List[Path]:
-        """Returns the current list of all filepaths created."""
+        """Returns the current unique list of all filepaths created."""
         filepaths = []
 
         filepaths.extend(self.exported_files)
@@ -85,7 +85,7 @@ class BoteloFilesBucket(object):
         if self.query_file:
             filepaths.append(self.query_file)
 
-        return filepaths
+        return list(set(filepaths))
 
     def log_filepaths(self):
         logger.info("Created export files: {0}".format(len(self.exported_files)))
